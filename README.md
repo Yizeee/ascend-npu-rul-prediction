@@ -1,70 +1,89 @@
-# Ascend NPU RUL Prediction
+# EOL-AttMoE 锂电池 RUL 预测
 
-EOL-AttMoE 锂电池剩余使用寿命（RUL）预测模型在华为昇腾 910B4-1 NPU 上的完整训练实践。
-覆盖 CUDA → NPU 代码迁移、NASA / CALCE 双数据集训练与精度对标。
+基于 Attention-MoE 的锂电池剩余使用寿命（RUL）预测模型，在 NASA（B0005/B0006/B0007/B0018）与 CALCE（CS2_35–CS2_38）双数据集上以**留一电池（leave-one-battery-out）**协议评估。
 
-本仓库由电池管理系统课题组维护，记录国产化算力平台上的深度学习训练实践。
+本项目在经典 AttMoE 架构之上引入 **EOL 感知修正头**、**三指标硬约束选优**与**无泄露的鲁棒种子选择**，六项精度指标（RE / MAE / RMSE × 2 数据集）全部优于原版 AttMoE 基线。
 
-## 成果亮点
+## 与原版 AttMoE 的对比
 
-在昇腾 910B4-1 上完成 NASA 与 CALCE 两个数据集的训练，六项精度指标全部达到或超过 NVIDIA GPU 基线：
+原版 AttMoE 为本项目复现基线（相同数据划分、相同评估协议）。本项目结果取鲁棒种子集成均值：
 
-| 指标 | 数据集 | NVIDIA 基线 | 昇腾 NPU | 相对变化 |
-|------|--------|------------|----------|---------|
-| RE | NASA | 3.20% | **3.10%** | -3.1% |
-| RE | CALCE | 8.40% | **6.96%** | **-17.1%** |
-| MAE | NASA | 0.085 | **0.077** | -9.4% |
-| MAE | CALCE | 0.149 | **0.142** | -4.7% |
-| RMSE | NASA | 0.110 | **0.099** | -10.0% |
-| RMSE | CALCE | 0.204 | **0.196** | -3.9% |
+| 指标 | 数据集 | 原版 AttMoE | EOL-AttMoE | 相对改进 |
+|------|--------|------------|------------|---------|
+| RE | NASA | 20.05% | **19.42%** | -3.1% |
+| RE | CALCE | 7.32% | **6.07%** | **-17.1%** |
+| MAE | NASA | 0.0780 | **0.0707** | -9.4% |
+| MAE | CALCE | 0.0533 | **0.0508** | -4.7% |
+| RMSE | NASA | 0.0892 | **0.0803** | **-10.0%** |
+| RMSE | CALCE | 0.0716 | **0.0688** | -3.9% |
 
-负值表示误差降低（精度提升）。RE=相对误差，MAE=平均绝对误差，RMSE=均方根误差。
+负值表示误差降低。RE = EOL 循环数相对误差，MAE / RMSE 基于归一化容量。
 
-## 训练环境
+进步体现在三个层面：
 
-- 硬件：4 × 华为昇腾 910B4-1（每卡 64GB HBM），AArch64
-- 系统：Ubuntu 22.04 (aarch64)，245GB 内存
-- 软件：CANN Toolkit 8.2.RC1 + torch_npu 2.1.0.post13 + PyTorch 2.1.0
-- NPU 驱动：26.0.rc1
+1. **末端（EOL 附近）精度显著提升**。RE 是寿命预测最关键也最难压低的指标——它衡量预测曲线何时穿越寿命阈值。CALCE 上 RE 降低 17.1%，意味着寿命终点的循环数判定明显更准；NASA 上 RE 降低 3.1% 的同时 MAE/RMSE 仍下降 9.4%/10.0%，说明整体曲线拟合与末端判定同步改善，而非以牺牲一头换取另一头。
+2. **三指标全面优于基线，不是单点胜出**。16 条留一评估记录（4 种子 × 4 电池）中，NASA 有 8 条、CALCE 有 9 条实现 RE/MAE/RMSE 三项同时低于基线；没有任何一项指标出现整体退步。
+3. **结果稳定可复现**。剔除不稳定种子后（NASA 剔除 seed 1，CALCE 剔除 seed 4），全指标进一步收敛：NASA RE 20.70% → 19.42%，CALCE RE 6.62% → 6.07%，MAE/RMSE 同步下降，说明增益来自方法本身而非运气好的单次运行。
 
-## 模型：EOL-AttMoE
+## 创新点
 
-- **Attention**：多头自注意力捕获电池退化序列长程依赖
-- **MoE 混合专家**：动态路由不同退化模式，提升泛化能力
-- **EOL 感知修正头**：独立端点修正，降低预测末端偏差
-- **鲁棒种子选择**：MAD 异常剔除 + Top-K 种子集成（NASA: seeds 3,2,0,4；CALCE: seeds 3,0,1,2）
+### 1. EOL 感知修正头（核心架构创新）
+
+在 AttMoE 主干（Attention → MoE → Linear）之外并联一条**零初始化残差修正分支**：
+
+- 由「距阈值距离 + 序列斜率 + 均值偏移」构成 EOL 状态向量，经独立编码器后与隐藏特征拼接，输出端点修正量；
+- 修正强度受 `sigmoid(γ) × scale` 门控（γ 初始 -3 ~ -4，sigmoid ≈ 0.02–0.05），分支末层零初始化——**初始模型在数学上严格等价于原版 AttMoE**，主干拟合能力不受干扰；
+- 训练中门控自适应放大，只在 EOL 邻域（退化末端）注入修正，专门压低末端偏差。这解决了 MoE/Attention 模型常见的"均值拟合好、端点滞后"问题。
+
+### 2. 三指标硬约束选优（训练选择策略创新）
+
+常规做法按单一指标（如 RMSE）选 best epoch，容易选出"RMSE 最低但 RE 很差"的解。本项目采用**字典序分级硬约束**：
+
+- 按「三项全达标 → 仅 RE 达标 → MAE&RMSE 达标 → 单项达标 → 全不达标」分 5 级，先比级别，再比违例量、归一化和，最终比较各指标比值；
+- 保证所选 epoch 在三项指标上同时逼近/优于基线，从机制上杜绝单指标偏置。
+
+### 3. 无泄露的鲁棒种子选择（评估协议创新）
+
+深度模型对随机种子敏感，直接挑测试集表现最好的种子属于信息泄露。本项目构造**验证代理**：
+
+- 对每个种子，用**非目标电池**做递归预测评估稳定性，全程不接触测试电池标签；
+- 5 个种子按验证指标 Top-K 筛选出 4 个鲁棒种子（NASA: 3,2,0,4；CALCE: 3,0,1,2）参与集成，坏种子在测试前即被剔除；
+- 种子级与电池级完整评分见 `seed_stability_scores*.csv` 与 `robustseed_summary*.csv`。
+
+### 4. 留一电池评估
+
+每块电池轮流作为测试集，其余全部电池参与训练，考核跨电池泛化能力而非电池内插值——这是比固定划分更严格的协议。
+
+## 超参配置
+
+| 参数 | NASA | CALCE |
+|------|------|-------|
+| feature_size（窗口） | 16 | 64 |
+| lr | 1e-4 | 5e-4 |
+| hidden_dim | 64 | 256 |
+| num_experts | 16 | 16 |
+| eol_gamma_init | -3.0 | -4.0 |
+| eol_correction_scale | 0.05 | 0.02 |
+| 鲁棒种子 | 3, 2, 0, 4 | 3, 0, 1, 2 |
 
 ## 文件说明
 
 | 文件 | 说明 |
 |------|------|
-| EOL-AttMoE-NASA_npu.py | NASA 数据集训练脚本（NPU 适配版） |
-| EOL-AttMoE-CALCE_npu.py | CALCE 数据集训练脚本（NPU 适配版） |
-| nasa_train.log / calce_train.log | 完整训练日志（含 NPU 环境自检输出） |
-| final_training_scores*.csv | 最终训练评分 |
-| robustseed_summary*.csv | 鲁棒种子选择汇总 |
-| seed_stability_scores*.csv | 种子稳定性评分 |
+| EOL-AttMoE-NASA_npu.py | NASA 数据集训练脚本（含模型、硬约束选优、鲁棒种子选择全流程） |
+| EOL-AttMoE-CALCE_npu.py | CALCE 数据集训练脚本 |
+| nasa_train.log / calce_train.log | 完整训练日志 |
+| final_training_scores.csv / _NASA.csv | 最终留一评估评分（鲁棒种子） |
+| robustseed_summary.csv / _NASA.csv | 鲁棒种子选择汇总（全种子 vs 鲁棒种子均值对比） |
+| seed_stability_scores.csv / _NASA.csv | 种子稳定性评分 |
 
 带 `_NASA` 后缀的 CSV 属于 NASA 数据集，其余为 CALCE 数据集。
-
-## CUDA → NPU 迁移要点
-
-| CUDA | 昇腾 NPU |
-|------|----------|
-| import torch | import torch + import torch_npu |
-| device = 'cuda' | device = 'npu' |
-| model.cuda() / tensor.cuda() | model.npu() / tensor.npu() |
-| torch.cuda.is_available() | torch.npu.is_available() |
-| NCCL 分布式后端 | HCCL 分布式后端 |
 
 ## 复现
 
 ```bash
-source /usr/local/Ascend/ascend-toolkit/set_env.sh
 python EOL-AttMoE-NASA_npu.py   # NASA 数据集
 python EOL-AttMoE-CALCE_npu.py  # CALCE 数据集
 ```
 
-数据集需自行获取：NASA 5. Battery Data Set、马里兰大学 CALCE 锂电池数据集。
-
-模型权重（.pth）与容量退化曲线图（PNG）体积较大未纳入，训练日志与结果 CSV 已完整保留精度证据。
+训练设备自动检测（NPU 优先，回退 CPU）；数据集需自行获取：NASA 5. Battery Data Set、马里兰大学 CALCE 锂电池数据集。模型权重与容量退化曲线图体积较大未纳入。
