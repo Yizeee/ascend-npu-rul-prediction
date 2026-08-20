@@ -1,0 +1,427 @@
+/home/ubuntu/.local/lib/python3.10/site-packages/torch_npu/utils/collect_env.py:59: UserWarning: Warning: The /usr/local/Ascend/ascend-toolkit/latest owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/home/ubuntu/.local/lib/python3.10/site-packages/torch_npu/utils/collect_env.py:59: UserWarning: Warning: The /usr/local/Ascend/ascend-toolkit/8.2.RC1/aarch64-linux/ascend_toolkit_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/home/ubuntu/.local/lib/python3.10/site-packages/torch_npu/utils/collect_env.py:59: UserWarning: Warning: The /usr/local/Ascend/ascend-toolkit/latest owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/home/ubuntu/.local/lib/python3.10/site-packages/torch_npu/utils/collect_env.py:59: UserWarning: Warning: The /usr/local/Ascend/ascend-toolkit/8.2.RC1/aarch64-linux/ascend_toolkit_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+========================================================================
+Python: /usr/bin/python3
+Working directory: /home/ubuntu/RUL-prediction
+Script directory: /home/ubuntu/RUL-prediction
+PyTorch version: 2.1.0
+NPU version: NPU
+NPU available: True
+Current device: npu:0
+NPU name: Ascend910B4-1
+========================================================================
+MoE backend: mixture_of_experts
+Output directory: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1
+best_metric=hard, baselines=(0.2005,0.078,0.0892), hard_priority=all, eval_interval=100
+robust_mode=topk, robust_metric=val_re_mean, robust_top_k=4, robust_mad_k=1.0, robust_seeds=
+Use raw NASA MAT data: /home/ubuntu/RUL-prediction/datasets/NASA
+Load Dataset B0005.mat ...
+/home/ubuntu/RUL-prediction/EOL-AttMoE-NASA_npu.py:160: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  d1["temp"] = int(col[i][1][0])
+Load Dataset B0006.mat ...
+Load Dataset B0007.mat ...
+Load Dataset B0018.mat ...
+Capacity figure saved: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/capacity_degradation_NASA.png
+Final training: seed=0, lr=0.0001, hidden_dim=64, num_experts=16, feature_size=16
+NASA EOL_AttMoE hardconstraint robustseed settings: feature_size=16, lr=0.0001, hidden_dim=64, num_experts=16, eol_state_dim=16, eol_gamma_init=-3.0, eol_correction_scale=0.05, eol_loss_weight=0.0, eol_enable_correction=True, best_metric=hard, eval_interval=100, baselines=(0.2005,0.078,0.0892), hard_priority=all
+[B0005] model device: npu:0; samples: 421
+[B0005] epoch=100/2000, loss=0.000382, RE=0.386792, MAE=0.121373, RMSE=0.139968
+/home/ubuntu/.local/lib/python3.10/site-packages/torch_npu/utils/storage.py:38: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  if self.device.type != 'cpu':
+[B0005] new best epoch:100 | hard=4.012163 | hard_tuple=(4, 2.0543518560512903, 5.054351856051291, 1.9291394156022919, 1.556066837331556, 1.5691456031174424)
+[B0005] epoch=200/2000, loss=0.000297, RE=0.292453, MAE=0.080027, RMSE=0.091840
+[B0005] new best epoch:200 | hard=4.007543 | hard_tuple=(4, 0.5142061475050517, 3.5142061475050514, 1.458617606918806, 1.0259893745774595, 1.0295991660087862)
+[B0005] epoch=300/2000, loss=0.000288, RE=0.235849, MAE=0.078206, RMSE=0.090007
+[B0005] new best epoch:300 | hard=4.006564 | hard_tuple=(4, 0.1879936154092816, 3.1879936154092814, 1.1763045217087145, 1.0026459932774154, 1.0090431004231517)
+[B0005] epoch=400/2000, loss=0.000278, RE=0.179245, MAE=0.076054, RMSE=0.087947
+[B0005] new best epoch:400 | hard=0.005710 | hard_tuple=(0, 0.0, 2.8549897337795556, 0.893991436498623, 0.9750500751247168, 0.9859482221562156)
+[B0005] epoch=500/2000, loss=0.000268, RE=0.132075, MAE=0.073613, RMSE=0.085664
+[B0005] new best epoch:500 | hard=0.005126 | hard_tuple=(0, 0.0, 2.5628456915017783, 0.6587305321568802, 0.9437522021142509, 0.960362957230647)
+[B0005] epoch=600/2000, loss=0.000258, RE=0.094340, MAE=0.070953, RMSE=0.083225
+[B0005] new best epoch:600 | hard=0.004626 | hard_tuple=(0, 0.0, 2.3131939726587962, 0.47052180868348586, 0.9096577617486182, 0.933014402226692)
+[B0005] epoch=700/2000, loss=0.000249, RE=0.056604, MAE=0.068162, RMSE=0.080693
+[B0005] new best epoch:700 | hard=0.004122 | hard_tuple=(0, 0.0, 2.0608186468541834, 0.28231308521009146, 0.8738748520546129, 0.904630709589479)
+[B0005] epoch=800/2000, loss=0.000240, RE=0.028302, MAE=0.065218, RMSE=0.078133
+[B0005] new best epoch:800 | hard=0.003706 | hard_tuple=(0, 0.0, 1.8532158877758715, 0.14115654260504573, 0.8361235689049671, 0.8759357762658587)
+[B0005] epoch=900/2000, loss=0.000232, RE=0.009434, MAE=0.062225, RMSE=0.075609
+[B0005] new best epoch:900 | hard=0.003385 | hard_tuple=(0, 0.0, 1.6924387512035466, 0.04705218086834858, 0.7977557759177781, 0.8476307944174197)
+[B0005] epoch=1000/2000, loss=0.000225, RE=0.009434, MAE=0.059404, RMSE=0.073178
+[B0005] new best epoch:1000 | hard=0.003258 | hard_tuple=(0, 0.0, 1.6290243867629013, 0.04705218086834858, 0.7615870461182528, 0.8203851597762999)
+[B0005] epoch=1100/2000, loss=0.000219, RE=0.028302, MAE=0.056757, RMSE=0.070894
+[B0005] selected best epoch:1000 | RE:0.009434 | MAE:0.059404 | RMSE:0.073178 | all_improved=True
+[B0005] validation proxy | RE:0.299198 | MAE:0.068798 | RMSE:0.076086 | composite:0.159844
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0005_lr0.0001_hidden64_experts16_seed0_bestepoch1000.pth
+[B0006] model device: npu:0; samples: 421
+[B0006] epoch=100/2000, loss=0.000296, RE=0.022222, MAE=0.068721, RMSE=0.086063
+[B0006] new best epoch:100 | hard=0.003913 | hard_tuple=(0, 0.0, 1.9567079496322346, 0.11083402604544333, 0.8810424776631798, 0.9648314459236115)
+[B0006] epoch=200/2000, loss=0.000212, RE=1.000000, MAE=0.106436, RMSE=0.126799
+[B0006] selected best epoch:100 | RE:0.022222 | MAE:0.068721 | RMSE:0.086063 | all_improved=True
+[B0006] validation proxy | RE:0.256333 | MAE:0.100612 | RMSE:0.113902 | composite:0.227331
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0006_lr0.0001_hidden64_experts16_seed0_bestepoch100.pth
+[B0007] model device: npu:0; samples: 421
+[B0007] epoch=100/2000, loss=0.000388, RE=0.589404, MAE=0.203180, RMSE=0.207138
+[B0007] new best epoch:100 | hard=4.020600 | hard_tuple=(4, 4.866710118084335, 7.8667101180843355, 2.9396706908079504, 2.6048687051253374, 2.3221707221510473)
+[B0007] epoch=200/2000, loss=0.000304, RE=0.271523, MAE=0.119682, RMSE=0.127040
+[B0007] new best epoch:200 | hard=4.009938 | hard_tuple=(4, 1.3128321858100378, 4.312832185810038, 1.3542303182373705, 1.5343855297437823, 1.424216337828885)
+[B0007] epoch=300/2000, loss=0.000295, RE=0.284768, MAE=0.119593, RMSE=0.126184
+[B0007] selected best epoch:200 | RE:0.271523 | MAE:0.119682 | RMSE:0.127040 | all_improved=False
+[B0007] validation proxy | RE:0.205150 | MAE:0.063699 | RMSE:0.078512 | composite:0.152468
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0007_lr0.0001_hidden64_experts16_seed0_bestepoch200.pth
+[B0018] model device: npu:0; samples: 457
+[B0018] epoch=100/2000, loss=0.000373, RE=0.141026, MAE=0.057882, RMSE=0.069932
+[B0018] new best epoch:100 | hard=0.004459 | hard_tuple=(0, 0.0, 2.2294318348585653, 0.7033697806730057, 0.7420737734636161, 0.7839882807219435)
+[B0018] epoch=200/2000, loss=0.000284, RE=1.000000, MAE=0.042918, RMSE=0.052274
+[B0018] selected best epoch:100 | RE:0.141026 | MAE:0.057882 | RMSE:0.069932 | all_improved=True
+[B0018] validation proxy | RE:0.329278 | MAE:0.119276 | RMSE:0.132681 | composite:0.268421
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0018_lr0.0001_hidden64_experts16_seed0_bestepoch100.pth
+Final training: seed=1, lr=0.0001, hidden_dim=64, num_experts=16, feature_size=16
+NASA EOL_AttMoE hardconstraint robustseed settings: feature_size=16, lr=0.0001, hidden_dim=64, num_experts=16, eol_state_dim=16, eol_gamma_init=-3.0, eol_correction_scale=0.05, eol_loss_weight=0.0, eol_enable_correction=True, best_metric=hard, eval_interval=100, baselines=(0.2005,0.078,0.0892), hard_priority=all
+[B0005] model device: npu:0; samples: 421
+[B0005] epoch=100/2000, loss=0.000997, RE=1.000000, MAE=0.118795, RMSE=0.135815
+[B0005] new best epoch:100 | hard=4.021099 | hard_tuple=(4, 5.033133506739338, 8.033133506739338, 4.98753117204495, 1.5230160350547601, 1.5225862996396284)
+[B0005] epoch=200/2000, loss=0.000909, RE=1.000000, MAE=0.115257, RMSE=0.128991
+[B0005] new best epoch:200 | hard=4.020734 | hard_tuple=(4, 4.911267311432823, 7.911267311432823, 4.98753117204495, 1.4776528927839852, 1.4460832466038882)
+[B0005] epoch=300/2000, loss=0.000859, RE=1.000000, MAE=0.113619, RMSE=0.127182
+[B0005] new best epoch:300 | hard=4.020610 | hard_tuple=(4, 4.869984286027151, 7.869984286027151, 4.98753117204495, 1.4566494264791638, 1.4258036875030378)
+[B0005] epoch=400/2000, loss=0.000803, RE=1.000000, MAE=0.111585, RMSE=0.124962
+[B0005] new best epoch:400 | hard=4.020457 | hard_tuple=(4, 4.819032004714222, 7.819032004714222, 4.98753117204495, 1.430580000586656, 1.4009208320826159)
+[B0005] epoch=500/2000, loss=0.000743, RE=1.000000, MAE=0.109185, RMSE=0.122342
+[B0005] new best epoch:500 | hard=4.020277 | hard_tuple=(4, 4.75887885003554, 7.75887885003554, 4.98753117204495, 1.3998024174520745, 1.3715452605385163)
+[B0005] epoch=600/2000, loss=0.000682, RE=1.000000, MAE=0.106429, RMSE=0.119317
+[B0005] new best epoch:600 | hard=4.020069 | hard_tuple=(4, 4.689646156521505, 7.689646156521505, 4.98753117204495, 1.364477043411136, 1.3376379410654191)
+[B0005] epoch=700/2000, loss=0.000621, RE=1.000000, MAE=0.103306, RMSE=0.115878
+[B0005] new best epoch:700 | hard=4.019833 | hard_tuple=(4, 4.611042552186087, 7.611042552186087, 4.98753117204495, 1.324431390806445, 1.299079989334693)
+[B0005] epoch=800/2000, loss=0.000561, RE=1.000000, MAE=0.099754, RMSE=0.112012
+[B0005] new best epoch:800 | hard=4.019566 | hard_tuple=(4, 4.522164266159824, 7.522164266159824, 4.98753117204495, 1.2788947680958056, 1.2557383260190689)
+[B0005] epoch=900/2000, loss=0.000503, RE=1.000000, MAE=0.095766, RMSE=0.107714
+[B0005] new best epoch:900 | hard=4.019269 | hard_tuple=(4, 4.422857039799469, 7.422857039799469, 4.98753117204495, 1.2277662164889611, 1.2075596512655584)
+[B0005] epoch=1000/2000, loss=0.000450, RE=1.000000, MAE=0.091257, RMSE=0.102997
+[B0005] new best epoch:1000 | hard=4.018937 | hard_tuple=(4, 4.312177325277387, 7.312177325277387, 4.98753117204495, 1.1699677371863464, 1.1546784160460914)
+[B0005] epoch=1100/2000, loss=0.000401, RE=1.000000, MAE=0.086189, RMSE=0.097904
+[B0005] new best epoch:1100 | hard=4.018570 | hard_tuple=(4, 4.190092899360618, 7.190092899360618, 4.98753117204495, 1.1049822552291582, 1.0975794720865097)
+[B0005] epoch=1200/2000, loss=0.000357, RE=0.339623, MAE=0.080808, RMSE=0.092524
+[B0005] new best epoch:1200 | hard=4.008301 | hard_tuple=(4, 0.767137665183909, 3.7671376651839092, 1.6938785112605488, 1.0359994629243012, 1.037259690999059)
+[B0005] epoch=1300/2000, loss=0.000320, RE=0.169811, MAE=0.075110, RMSE=0.087004
+[B0005] new best epoch:1300 | hard=0.005571 | hard_tuple=(0, 0.0, 2.7852726468040783, 0.8469392556302744, 0.9629484496639056, 0.9753849415098983)
+[B0005] epoch=1400/2000, loss=0.000289, RE=0.075472, MAE=0.069139, RMSE=0.081553
+[B0005] new best epoch:1400 | hard=0.004354 | hard_tuple=(0, 0.0, 2.177091623143233, 0.37641744694678864, 0.8864022135454248, 0.9142719626510193)
+[B0005] epoch=1500/2000, loss=0.000264, RE=0.018868, MAE=0.063167, RMSE=0.076418
+[B0005] new best epoch:1500 | hard=0.003521 | hard_tuple=(0, 0.0, 1.7606364180897123, 0.09410436173669716, 0.8098295530303701, 0.8567025033226451)
+[B0005] epoch=1600/2000, loss=0.000245, RE=0.018868, MAE=0.057787, RMSE=0.071855
+[B0005] new best epoch:1600 | hard=0.003281 | hard_tuple=(0, 0.0, 1.6405162596302145, 0.09410436173669716, 0.7408632810936959, 0.8055486167998215)
+[B0005] epoch=1700/2000, loss=0.000232, RE=0.047170, MAE=0.053424, RMSE=0.068054
+[B0005] selected best epoch:1600 | RE:0.018868 | MAE:0.057787 | RMSE:0.071855 | all_improved=True
+[B0005] validation proxy | RE:0.301406 | MAE:0.068977 | RMSE:0.075984 | composite:0.160032
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0005_lr0.0001_hidden64_experts16_seed1_bestepoch1600.pth
+[B0006] model device: npu:0; samples: 421
+[B0006] epoch=100/2000, loss=0.000778, RE=1.000000, MAE=0.124440, RMSE=0.147585
+[B0006] new best epoch:100 | hard=4.021712 | hard_tuple=(4, 5.23745983589654, 8.23745983589654, 4.98753117204495, 1.5953901002455675, 1.6545385636060228)
+[B0006] epoch=200/2000, loss=0.000706, RE=1.000000, MAE=0.138465, RMSE=0.163666
+[B0006] epoch=300/2000, loss=0.000675, RE=1.000000, MAE=0.136858, RMSE=0.161971
+[B0006] epoch=400/2000, loss=0.000639, RE=1.000000, MAE=0.135020, RMSE=0.160022
+[B0006] epoch=500/2000, loss=0.000600, RE=1.000000, MAE=0.132894, RMSE=0.157755
+[B0006] epoch=600/2000, loss=0.000559, RE=1.000000, MAE=0.130500, RMSE=0.155190
+[B0006] epoch=700/2000, loss=0.000517, RE=1.000000, MAE=0.127855, RMSE=0.152337
+[B0006] epoch=800/2000, loss=0.000475, RE=1.000000, MAE=0.124973, RMSE=0.149213
+[B0006] epoch=900/2000, loss=0.000433, RE=1.000000, MAE=0.121927, RMSE=0.145841
+[B0006] new best epoch:900 | hard=4.021557 | hard_tuple=(4, 5.18569100302606, 8.18569100302606, 4.98753117204495, 1.5631694470095294, 1.6349903839715814)
+[B0006] epoch=1000/2000, loss=0.000393, RE=1.000000, MAE=0.118773, RMSE=0.142261
+[B0006] new best epoch:1000 | hard=4.021315 | hard_tuple=(4, 5.10511591712466, 8.10511591712466, 4.98753117204495, 1.5227353017263368, 1.5948494433533733)
+[B0006] epoch=1100/2000, loss=0.000354, RE=1.000000, MAE=0.115591, RMSE=0.138535
+[B0006] new best epoch:1100 | hard=4.021068 | hard_tuple=(4, 5.022551013818222, 8.022551013818223, 4.98753117204495, 1.4819350273559382, 1.5530848144173346)
+[B0006] epoch=1200/2000, loss=0.000318, RE=1.000000, MAE=0.112607, RMSE=0.134769
+[B0006] new best epoch:1200 | hard=4.020826 | hard_tuple=(4, 4.942076761407079, 7.942076761407079, 4.98753117204495, 1.4436796497222086, 1.5108659396399204)
+[B0006] epoch=1300/2000, loss=0.000285, RE=1.000000, MAE=0.109746, RMSE=0.131116
+[B0006] new best epoch:1300 | hard=4.020593 | hard_tuple=(4, 4.864450540866868, 7.864450540866868, 4.98753117204495, 1.4070051074235428, 1.4699142613983762)
+[B0006] epoch=1400/2000, loss=0.000254, RE=1.000000, MAE=0.107261, RMSE=0.127794
+[B0006] new best epoch:1400 | hard=4.020386 | hard_tuple=(4, 4.795336074458653, 7.795336074458653, 4.98753117204495, 1.3751372776804969, 1.432667624733207)
+[B0006] epoch=1500/2000, loss=0.000228, RE=1.000000, MAE=0.105389, RMSE=0.125080
+[B0006] new best epoch:1500 | hard=4.020223 | hard_tuple=(4, 4.740919257665725, 7.740919257665725, 4.98753117204495, 1.3511406341344672, 1.4022474514863092)
+[B0006] epoch=1600/2000, loss=0.000206, RE=1.000000, MAE=0.104644, RMSE=0.123297
+[B0006] new best epoch:1600 | hard=4.020134 | hard_tuple=(4, 4.711380962698078, 7.711380962698078, 4.98753117204495, 1.3415920484186346, 1.382257742234493)
+[B0006] epoch=1700/2000, loss=0.000187, RE=1.000000, MAE=0.105219, RMSE=0.122756
+[B0006] epoch=1800/2000, loss=0.000173, RE=1.000000, MAE=0.107279, RMSE=0.123670
+[B0006] epoch=1900/2000, loss=0.000162, RE=0.633333, MAE=0.110623, RMSE=0.126088
+[B0006] new best epoch:1900 | hard=4.014972 | hard_tuple=(4, 2.9905596387506788, 5.990559638750678, 3.1587697422951346, 1.4182462864045422, 1.413543610051002)
+[B0006] epoch=2000/2000, loss=0.000154, RE=0.611111, MAE=0.114949, RMSE=0.129826
+[B0006] new best epoch:2000 | hard=4.014931 | hard_tuple=(4, 2.977096120339122, 5.977096120339122, 3.047935716249692, 1.4737082763208158, 1.4554521277686148)
+[B0006] selected best epoch:2000 | RE:0.611111 | MAE:0.114949 | RMSE:0.129826 | all_improved=False
+[B0006] validation proxy | RE:0.425590 | MAE:0.053619 | RMSE:0.060052 | composite:0.134950
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0006_lr0.0001_hidden64_experts16_seed1_bestepoch2000.pth
+[B0007] model device: npu:0; samples: 421
+[B0007] epoch=100/2000, loss=0.001041, RE=1.000000, MAE=0.145400, RMSE=0.169025
+[B0007] new best epoch:100 | hard=4.023240 | hard_tuple=(4, 5.74653315609341, 8.74653315609341, 4.98753117204495, 1.86409757732774, 1.89490440672072)
+[B0007] epoch=200/2000, loss=0.000947, RE=1.000000, MAE=0.115539, RMSE=0.138609
+[B0007] new best epoch:200 | hard=4.021068 | hard_tuple=(4, 5.022710343162674, 8.022710343162675, 4.98753117204495, 1.4812707663697662, 1.5539084047479585)
+[B0007] epoch=300/2000, loss=0.000889, RE=1.000000, MAE=0.115121, RMSE=0.137834
+[B0007] new best epoch:300 | hard=4.021026 | hard_tuple=(4, 5.008666708468715, 8.008666708468715, 4.98753117204495, 1.4759098011529956, 1.545225735270769)
+[B0007] epoch=400/2000, loss=0.000825, RE=1.000000, MAE=0.114596, RMSE=0.136802
+[B0007] new best epoch:400 | hard=4.020971 | hard_tuple=(4, 4.990375872784371, 7.990375872784371, 4.98753117204495, 1.4691858259963928, 1.5336588747430293)
+[B0007] epoch=500/2000, loss=0.000757, RE=1.000000, MAE=0.114147, RMSE=0.135630
+[B0007] new best epoch:500 | hard=4.020914 | hard_tuple=(4, 4.971473793933856, 7.971473793933856, 4.98753117204495, 1.4634263713562186, 1.520516250532688)
+[B0007] epoch=600/2000, loss=0.000688, RE=1.000000, MAE=0.113851, RMSE=0.134336
+[B0007] new best epoch:600 | hard=4.020860 | hard_tuple=(4, 4.9531687764784875, 7.9531687764784875, 4.98753117204495, 1.4596253835467727, 1.5060122208867652)
+[B0007] epoch=700/2000, loss=0.000620, RE=1.000000, MAE=0.113949, RMSE=0.132942
+[B0007] new best epoch:700 | hard=4.020816 | hard_tuple=(4, 4.938793847137597, 7.938793847137597, 4.98753117204495, 1.4608796666351502, 1.4903830084574972)
+[B0007] epoch=800/2000, loss=0.000554, RE=1.000000, MAE=0.114414, RMSE=0.131471
+[B0007] new best epoch:800 | hard=4.020785 | hard_tuple=(4, 4.928269834820133, 7.928269834820133, 4.98753117204495, 1.4668504980863273, 1.4738881646888566)
+[B0007] epoch=900/2000, loss=0.000492, RE=1.000000, MAE=0.115375, RMSE=0.129951
+[B0007] new best epoch:900 | hard=4.020771 | hard_tuple=(4, 4.923539190645407, 7.923539190645407, 4.98753117204495, 1.4791635413398114, 1.4568444772606453)
+[B0007] epoch=1000/2000, loss=0.000436, RE=0.145695, MAE=0.116783, RMSE=0.128413
+[B0007] new best epoch:1000 | hard=1.008264 | hard_tuple=(1, 0.9368200566274245, 3.6634802273889404, 0.7266601707615158, 1.4972158748838167, 1.4396041817436078)
+[B0007] epoch=1100/2000, loss=0.000385, RE=0.238411, MAE=0.118103, RMSE=0.126890
+[B0007] selected best epoch:1000 | RE:0.145695 | MAE:0.116783 | RMSE:0.128413 | all_improved=False
+[B0007] validation proxy | RE:0.556604 | MAE:0.071319 | RMSE:0.086354 | composite:0.185503
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0007_lr0.0001_hidden64_experts16_seed1_bestepoch1000.pth
+[B0018] model device: npu:0; samples: 457
+[B0018] epoch=100/2000, loss=0.001080, RE=1.000000, MAE=0.063341, RMSE=0.073638
+[B0018] new best epoch:100 | hard=2.017238 | hard_tuple=(2, 3.9875311720449496, 6.6251385949337145, 4.98753117204495, 0.8120645441041137, 0.825542878784651)
+[B0018] epoch=200/2000, loss=0.000981, RE=1.000000, MAE=0.070450, RMSE=0.082201
+[B0018] epoch=300/2000, loss=0.000918, RE=1.000000, MAE=0.068575, RMSE=0.080293
+[B0018] epoch=400/2000, loss=0.000848, RE=1.000000, MAE=0.066357, RMSE=0.078064
+[B0018] epoch=500/2000, loss=0.000773, RE=1.000000, MAE=0.063774, RMSE=0.075471
+[B0018] epoch=600/2000, loss=0.000697, RE=1.000000, MAE=0.060875, RMSE=0.072532
+[B0018] new best epoch:600 | hard=2.017150 | hard_tuple=(2, 3.9875311720449496, 6.581120832754802, 4.98753117204495, 0.780446171291181, 0.8131434894186724)
+[B0018] epoch=700/2000, loss=0.000622, RE=1.000000, MAE=0.057735, RMSE=0.069267
+[B0018] new best epoch:700 | hard=2.016996 | hard_tuple=(2, 3.9875311720449496, 6.504252256401793, 4.98753117204495, 0.7401906181336451, 0.7765304662231989)
+[B0018] epoch=800/2000, loss=0.000549, RE=1.000000, MAE=0.054479, RMSE=0.065702
+[B0018] new best epoch:800 | hard=2.016833 | hard_tuple=(2, 3.9875311720449496, 6.42255356623918, 4.98753117204495, 0.6984534650459712, 0.7365689291482587)
+[B0018] epoch=900/2000, loss=0.000479, RE=1.000000, MAE=0.051033, RMSE=0.061892
+[B0018] new best epoch:900 | hard=2.016659 | hard_tuple=(2, 3.9875311720449496, 6.335657471569425, 4.98753117204495, 0.6542741312250878, 0.6938521682993879)
+[B0018] epoch=1000/2000, loss=0.000416, RE=1.000000, MAE=0.047601, RMSE=0.057929
+[B0018] new best epoch:1000 | hard=2.016482 | hard_tuple=(2, 3.9875311720449496, 6.247229084686425, 4.98753117204495, 0.6102674715121106, 0.6494304411293649)
+[B0018] epoch=1100/2000, loss=0.000359, RE=1.000000, MAE=0.044339, RMSE=0.053967
+[B0018] new best epoch:1100 | hard=2.016310 | hard_tuple=(2, 3.9875311720449496, 6.160986358664708, 4.98753117204495, 0.5684484019351362, 0.6050067846846229)
+[B0018] epoch=1200/2000, loss=0.000309, RE=1.000000, MAE=0.041443, RMSE=0.050229
+[B0018] new best epoch:1200 | hard=2.016151 | hard_tuple=(2, 3.9875311720449496, 6.0819509827092215, 4.98753117204495, 0.53131779033226, 0.563102020332012)
+[B0018] epoch=1300/2000, loss=0.000268, RE=1.000000, MAE=0.039096, RMSE=0.047001
+[B0018] new best epoch:1300 | hard=2.016019 | hard_tuple=(2, 3.9875311720449496, 6.015678204594814, 4.98753117204495, 0.5012261165893476, 0.5269209159605165)
+[B0018] epoch=1400/2000, loss=0.000235, RE=0.423077, MAE=0.037558, RMSE=0.044590
+[B0018] new best epoch:1400 | hard=2.007293 | hard_tuple=(2, 1.1101093420190171, 3.0915153523579475, 2.110109342019017, 0.4815131659305037, 0.4998928444084267)
+[B0018] epoch=1500/2000, loss=0.000211, RE=0.358974, MAE=0.036620, RMSE=0.043220
+[B0018] new best epoch:1500 | hard=2.006279 | hard_tuple=(2, 0.7903958053494691, 2.7444083411402502, 1.790395805349469, 0.4694885784378315, 0.48452395735294984)
+[B0018] epoch=1600/2000, loss=0.000193, RE=0.320513, MAE=0.036316, RMSE=0.042921
+[B0018] new best epoch:1600 | hard=2.005689 | hard_tuple=(2, 0.5985676833477405, 2.54533561055012, 1.5985676833477405, 0.46559493578060607, 0.48117299142177333)
+[B0018] epoch=1700/2000, loss=0.000182, RE=0.282051, MAE=0.036746, RMSE=0.043497
+[B0018] new best epoch:1700 | hard=2.005138 | hard_tuple=(2, 0.4067395613460114, 2.365486586212764, 1.4067395613460114, 0.4711074287681893, 0.4876395960985631)
+[B0018] epoch=1800/2000, loss=0.000174, RE=0.269231, MAE=0.037790, RMSE=0.044615
+[B0018] new best epoch:1800 | hard=2.004998 | hard_tuple=(2, 0.3427968540121018, 2.3274493208724722, 1.3427968540121018, 0.48448870529002397, 0.5001637615703465)
+[B0018] epoch=1900/2000, loss=0.000170, RE=0.256410, MAE=0.038891, RMSE=0.045925
+[B0018] new best epoch:1900 | hard=2.004863 | hard_tuple=(2, 0.27885414667819197, 2.2923151944200173, 1.278854146678192, 0.4986044000081055, 0.5148566477337199)
+[B0018] epoch=2000/2000, loss=0.000167, RE=0.256410, MAE=0.040065, RMSE=0.047169
+[B0018] selected best epoch:1900 | RE:0.256410 | MAE:0.038891 | RMSE:0.045925 | all_improved=False
+[B0018] validation proxy | RE:0.234060 | MAE:0.074059 | RMSE:0.082543 | composite:0.168305
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0018_lr0.0001_hidden64_experts16_seed1_bestepoch1900.pth
+Final training: seed=2, lr=0.0001, hidden_dim=64, num_experts=16, feature_size=16
+NASA EOL_AttMoE hardconstraint robustseed settings: feature_size=16, lr=0.0001, hidden_dim=64, num_experts=16, eol_state_dim=16, eol_gamma_init=-3.0, eol_correction_scale=0.05, eol_loss_weight=0.0, eol_enable_correction=True, best_metric=hard, eval_interval=100, baselines=(0.2005,0.078,0.0892), hard_priority=all
+[B0005] model device: npu:0; samples: 421
+[B0005] epoch=100/2000, loss=0.000363, RE=0.471698, MAE=0.206779, RMSE=0.211257
+[B0005] new best epoch:100 | hard=4.019116 | hard_tuple=(4, 4.371968569625872, 7.371968569625872, 2.352609043417429, 2.651007766868382, 2.3683517593400607)
+[B0005] epoch=200/2000, loss=0.000244, RE=0.028302, MAE=0.049814, RMSE=0.063701
+[B0005] new best epoch:200 | hard=0.002988 | hard_tuple=(0, 0.0, 1.4939364978231233, 0.14115654260504573, 0.638639859032913, 0.7141400961851646)
+[B0005] epoch=300/2000, loss=0.000241, RE=0.037736, MAE=0.049013, RMSE=0.062763
+[B0005] selected best epoch:200 | RE:0.028302 | MAE:0.049814 | RMSE:0.063701 | all_improved=True
+[B0005] validation proxy | RE:0.271135 | MAE:0.068660 | RMSE:0.074577 | composite:0.156794
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0005_lr0.0001_hidden64_experts16_seed2_bestepoch200.pth
+[B0006] model device: npu:0; samples: 421
+[B0006] epoch=100/2000, loss=0.000287, RE=0.122222, MAE=0.055289, RMSE=0.064778
+[B0006] new best epoch:100 | hard=0.004089 | hard_tuple=(0, 0.0, 2.0446244874689494, 0.6095871432499382, 0.708831263247501, 0.7262060809715101)
+[B0006] epoch=200/2000, loss=0.000167, RE=0.588889, MAE=0.117956, RMSE=0.132885
+[B0006] selected best epoch:100 | RE:0.122222 | MAE:0.055289 | RMSE:0.064778 | all_improved=True
+[B0006] validation proxy | RE:0.388744 | MAE:0.153189 | RMSE:0.161885 | composite:0.334511
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0006_lr0.0001_hidden64_experts16_seed2_bestepoch100.pth
+[B0007] model device: npu:0; samples: 421
+[B0007] epoch=100/2000, loss=0.000368, RE=0.609272, MAE=0.271995, RMSE=0.284203
+[B0007] new best epoch:100 | hard=4.026136 | hard_tuple=(4, 6.712008978358204, 9.712008978358204, 3.0387607140936117, 3.487118347552716, 3.1861299167118764)
+[B0007] epoch=200/2000, loss=0.000243, RE=0.324503, MAE=0.114048, RMSE=0.116184
+[B0007] new best epoch:200 | hard=4.010149 | hard_tuple=(4, 1.3831367962769578, 4.383136796276958, 1.618470380332467, 1.462149629375594, 1.302516786568897)
+[B0007] epoch=300/2000, loss=0.000244, RE=0.324503, MAE=0.111379, RMSE=0.113299
+[B0007] new best epoch:300 | hard=4.009950 | hard_tuple=(4, 1.3165778133983612, 4.316577813398361, 1.618470380332467, 1.4279387393657426, 1.2701686937001517)
+[B0007] epoch=400/2000, loss=0.000246, RE=0.337748, MAE=0.111321, RMSE=0.113205
+[B0007] selected best epoch:300 | RE:0.324503 | MAE:0.111379 | RMSE:0.113299 | all_improved=False
+[B0007] validation proxy | RE:0.175660 | MAE:0.055807 | RMSE:0.063117 | composite:0.127707
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0007_lr0.0001_hidden64_experts16_seed2_bestepoch300.pth
+[B0018] model device: npu:0; samples: 457
+[B0018] epoch=100/2000, loss=0.000325, RE=0.282051, MAE=0.103661, RMSE=0.119839
+[B0018] new best epoch:100 | hard=4.009238 | hard_tuple=(4, 1.0792024004847502, 4.079202400484751, 1.4067395613460114, 1.3289808218461114, 1.3434820172926274)
+[B0018] epoch=200/2000, loss=0.000204, RE=0.333333, MAE=0.040878, RMSE=0.047559
+[B0018] new best epoch:200 | hard=2.006102 | hard_tuple=(2, 0.6625103906816499, 2.719761196745908, 1.6625103906816499, 0.5240827305550965, 0.533168075509162)
+[B0018] selected best epoch:200 | RE:0.333333 | MAE:0.040878 | RMSE:0.047559 | all_improved=False
+[B0018] validation proxy | RE:0.225563 | MAE:0.074499 | RMSE:0.083639 | composite:0.169417
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0018_lr0.0001_hidden64_experts16_seed2_bestepoch200.pth
+Final training: seed=3, lr=0.0001, hidden_dim=64, num_experts=16, feature_size=16
+NASA EOL_AttMoE hardconstraint robustseed settings: feature_size=16, lr=0.0001, hidden_dim=64, num_experts=16, eol_state_dim=16, eol_gamma_init=-3.0, eol_correction_scale=0.05, eol_loss_weight=0.0, eol_enable_correction=True, best_metric=hard, eval_interval=100, baselines=(0.2005,0.078,0.0892), hard_priority=all
+[B0005] model device: npu:0; samples: 421
+[B0005] epoch=100/2000, loss=0.000330, RE=0.415094, MAE=0.201427, RMSE=0.211611
+[B0005] new best epoch:100 | hard=4.018075 | hard_tuple=(4, 4.025017506361235, 7.025017506361234, 2.0702959582073377, 2.582395325871273, 2.372326222282624)
+[B0005] epoch=200/2000, loss=0.000245, RE=0.056604, MAE=0.048286, RMSE=0.056958
+[B0005] new best epoch:200 | hard=0.003080 | hard_tuple=(0, 0.0, 1.5399031636963398, 0.28231308521009146, 0.6190470261887862, 0.6385430522974623)
+[B0005] epoch=300/2000, loss=0.000244, RE=0.056604, MAE=0.049047, RMSE=0.057952
+[B0005] epoch=400/2000, loss=0.000242, RE=0.066038, MAE=0.050345, RMSE=0.058607
+[B0005] selected best epoch:200 | RE:0.056604 | MAE:0.048286 | RMSE:0.056958 | all_improved=True
+[B0005] validation proxy | RE:0.291291 | MAE:0.074487 | RMSE:0.081313 | composite:0.170365
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0005_lr0.0001_hidden64_experts16_seed3_bestepoch200.pth
+[B0006] model device: npu:0; samples: 421
+[B0006] epoch=100/2000, loss=0.000254, RE=0.022222, MAE=0.040472, RMSE=0.048450
+[B0006] new best epoch:100 | hard=0.002346 | hard_tuple=(0, 0.0, 1.1728632986061687, 0.11083402604544333, 0.5188666533811361, 0.5431626191795892)
+[B0006] epoch=200/2000, loss=0.000170, RE=0.644444, MAE=0.143493, RMSE=0.158268
+[B0006] selected best epoch:100 | RE:0.022222 | MAE:0.040472 | RMSE:0.048450 | all_improved=True
+[B0006] validation proxy | RE:0.321364 | MAE:0.141820 | RMSE:0.156350 | composite:0.314238
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0006_lr0.0001_hidden64_experts16_seed3_bestepoch100.pth
+[B0007] model device: npu:0; samples: 421
+[B0007] epoch=100/2000, loss=0.000337, RE=0.562914, MAE=0.255915, RMSE=0.275773
+[B0007] new best epoch:100 | hard=4.024540 | hard_tuple=(4, 6.180132094099434, 9.180132094099434, 2.807550659760402, 3.2809592971299995, 3.091622137209033)
+[B0007] epoch=200/2000, loss=0.000250, RE=0.311258, MAE=0.102538, RMSE=0.107373
+[B0007] new best epoch:200 | hard=4.009212 | hard_tuple=(4, 1.0707348030195616, 4.070734803019562, 1.5524103648086929, 1.3145960286283165, 1.2037284095825522)
+[B0007] epoch=300/2000, loss=0.000247, RE=0.317881, MAE=0.104652, RMSE=0.108598
+[B0007] selected best epoch:200 | RE:0.311258 | MAE:0.102538 | RMSE:0.107373 | all_improved=False
+[B0007] validation proxy | RE:0.196436 | MAE:0.061285 | RMSE:0.067162 | composite:0.138270
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0007_lr0.0001_hidden64_experts16_seed3_bestepoch200.pth
+[B0018] model device: npu:0; samples: 457
+[B0018] epoch=100/2000, loss=0.000284, RE=0.205128, MAE=0.088229, RMSE=0.110276
+[B0018] new best epoch:100 | hard=4.007172 | hard_tuple=(4, 0.3905044666283539, 3.3905044666283537, 1.0230833173425538, 1.1311461734629562, 1.236274975822844)
+[B0018] epoch=200/2000, loss=0.000203, RE=0.307692, MAE=0.045315, RMSE=0.053341
+[B0018] new best epoch:200 | hard=2.005962 | hard_tuple=(2, 0.5346249760138306, 2.7135794101578625, 1.5346249760138306, 0.5809619476363883, 0.5979924865076438)
+[B0018] selected best epoch:200 | RE:0.307692 | MAE:0.045315 | RMSE:0.053341 | all_improved=False
+[B0018] validation proxy | RE:0.240378 | MAE:0.073799 | RMSE:0.082957 | composite:0.168774
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0018_lr0.0001_hidden64_experts16_seed3_bestepoch200.pth
+Final training: seed=4, lr=0.0001, hidden_dim=64, num_experts=16, feature_size=16
+NASA EOL_AttMoE hardconstraint robustseed settings: feature_size=16, lr=0.0001, hidden_dim=64, num_experts=16, eol_state_dim=16, eol_gamma_init=-3.0, eol_correction_scale=0.05, eol_loss_weight=0.0, eol_enable_correction=True, best_metric=hard, eval_interval=100, baselines=(0.2005,0.078,0.0892), hard_priority=all
+[B0005] model device: npu:0; samples: 421
+[B0005] epoch=100/2000, loss=0.000664, RE=1.000000, MAE=0.170906, RMSE=0.209114
+[B0005] new best epoch:100 | hard=4.025569 | hard_tuple=(4, 6.522962836830606, 9.522962836830606, 4.98753117204495, 2.1911039462174506, 2.344327718568206)
+[B0005] epoch=200/2000, loss=0.000285, RE=0.198113, MAE=0.076194, RMSE=0.087989
+[B0005] new best epoch:200 | hard=0.005903 | hard_tuple=(0, 0.0, 2.9513623945467877, 0.9880957982353202, 0.9768452083225214, 0.9864213879889463)
+[B0005] epoch=300/2000, loss=0.000279, RE=0.160377, MAE=0.074942, RMSE=0.086866
+[B0005] new best epoch:300 | hard=0.005469 | hard_tuple=(0, 0.0, 2.734510807558163, 0.7998870747619258, 0.9607898283343652, 0.9738339044618716)
+[B0005] epoch=400/2000, loss=0.000273, RE=0.132075, MAE=0.073438, RMSE=0.085466
+[B0005] new best epoch:400 | hard=0.005117 | hard_tuple=(0, 0.0, 2.558378041876272, 0.6587305321568802, 0.941511405523898, 0.9581361041954938)
+[B0005] epoch=500/2000, loss=0.000266, RE=0.103774, MAE=0.071734, RMSE=0.083904
+[B0005] new best epoch:500 | hard=0.004756 | hard_tuple=(0, 0.0, 2.3778702960504416, 0.5175739895518344, 0.9196661712462201, 0.9406301352523869)
+[B0005] epoch=600/2000, loss=0.000259, RE=0.084906, MAE=0.069886, RMSE=0.082219
+[B0005] new best epoch:600 | hard=0.004482 | hard_tuple=(0, 0.0, 2.2411805000909024, 0.4234696278151372, 0.8959780352513035, 0.9217328370244616)
+[B0005] epoch=700/2000, loss=0.000252, RE=0.056604, MAE=0.067913, RMSE=0.080444
+[B0005] new best epoch:700 | hard=0.004110 | hard_tuple=(0, 0.0, 2.054831351805929, 0.28231308521009146, 0.8706746322196552, 0.9018436343761822)
+[B0005] epoch=800/2000, loss=0.000245, RE=0.037736, MAE=0.065809, RMSE=0.078615
+[B0005] new best epoch:800 | hard=0.003827 | hard_tuple=(0, 0.0, 1.913255046314491, 0.18820872347339432, 0.8437076144248639, 0.881338708416233)
+[B0005] epoch=900/2000, loss=0.000238, RE=0.018868, MAE=0.063626, RMSE=0.076765
+[B0005] new best epoch:900 | hard=0.003541 | hard_tuple=(0, 0.0, 1.7704151168156679, 0.09410436173669716, 0.8157181862692582, 0.8605925688097126)
+[B0005] epoch=1000/2000, loss=0.000232, RE=0.000000, MAE=0.061445, RMSE=0.074924
+[B0005] new best epoch:1000 | hard=0.003255 | hard_tuple=(0, 0.0, 1.6277144987144805, 0.0, 0.7877585218109187, 0.8399559769035619)
+[B0005] epoch=1100/2000, loss=0.000226, RE=0.009434, MAE=0.059343, RMSE=0.073123
+[B0005] new best epoch:1100 | hard=0.003255 | hard_tuple=(0, 0.0, 1.627622805870753, 0.04705218086834858, 0.7608019024420596, 0.8197687225603448)
+[B0005] selected best epoch:1100 | RE:0.009434 | MAE:0.059343 | RMSE:0.073123 | all_improved=True
+[B0005] validation proxy | RE:0.307175 | MAE:0.068893 | RMSE:0.076169 | composite:0.160421
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0005_lr0.0001_hidden64_experts16_seed4_bestepoch1100.pth
+[B0006] model device: npu:0; samples: 421
+[B0006] epoch=100/2000, loss=0.000598, RE=1.000000, MAE=0.290495, RMSE=0.331215
+[B0006] new best epoch:100 | hard=4.034275 | hard_tuple=(4, 9.425001286242258, 12.425001286242258, 4.98753117204495, 3.7242985423303048, 3.713171571867005)
+[B0006] epoch=200/2000, loss=0.000204, RE=1.000000, MAE=0.105493, RMSE=0.125362
+[B0006] new best epoch:200 | hard=4.020236 | hard_tuple=(4, 4.745406530354024, 7.745406530354024, 4.98753117204495, 1.3524689298629793, 1.405406428446095)
+[B0006] epoch=300/2000, loss=0.000200, RE=1.000000, MAE=0.104931, RMSE=0.124602
+[B0006] new best epoch:300 | hard=4.020189 | hard_tuple=(4, 4.729678230874353, 7.729678230874353, 4.98753117204495, 1.3452686714521886, 1.3968783873772146)
+[B0006] epoch=400/2000, loss=0.000196, RE=1.000000, MAE=0.104608, RMSE=0.124067
+[B0006] new best epoch:400 | hard=4.020159 | hard_tuple=(4, 4.719542393302958, 7.719542393302958, 4.98753117204495, 1.3411296246358606, 1.3908815966221475)
+[B0006] epoch=500/2000, loss=0.000191, RE=1.000000, MAE=0.104286, RMSE=0.123520
+[B0006] new best epoch:500 | hard=4.020128 | hard_tuple=(4, 4.709282570473395, 7.709282570473395, 4.98753117204495, 1.3369960967304633, 1.384755301697982)
+[B0006] epoch=600/2000, loss=0.000187, RE=1.000000, MAE=0.104061, RMSE=0.122996
+[B0006] new best epoch:600 | hard=4.020102 | hard_tuple=(4, 4.700527840665267, 7.700527840665267, 4.98753117204495, 1.3341161980383767, 1.378880470581941)
+[B0006] epoch=700/2000, loss=0.000182, RE=1.000000, MAE=0.103903, RMSE=0.122529
+[B0006] new best epoch:700 | hard=4.020080 | hard_tuple=(4, 4.6932610492061455, 7.6932610492061455, 4.98753117204495, 1.3320848946864234, 1.3736449824747725)
+[B0006] epoch=800/2000, loss=0.000177, RE=1.000000, MAE=0.103886, RMSE=0.122155
+[B0006] new best epoch:800 | hard=4.020067 | hard_tuple=(4, 4.6888540623270405, 7.6888540623270405, 4.98753117204495, 1.331870135111011, 1.3694527551710807)
+[B0006] epoch=900/2000, loss=0.000172, RE=1.000000, MAE=0.103990, RMSE=0.121904
+[B0006] new best epoch:900 | hard=4.020062 | hard_tuple=(4, 4.6873738049574385, 7.6873738049574385, 4.98753117204495, 1.3332055929994269, 1.3666370399130616)
+[B0006] epoch=1000/2000, loss=0.000168, RE=1.000000, MAE=0.104286, RMSE=0.121809
+[B0006] epoch=1100/2000, loss=0.000163, RE=1.000000, MAE=0.104793, RMSE=0.121899
+[B0006] epoch=1200/2000, loss=0.000159, RE=1.000000, MAE=0.105503, RMSE=0.122199
+[B0006] epoch=1300/2000, loss=0.000155, RE=1.000000, MAE=0.106444, RMSE=0.122729
+[B0006] epoch=1400/2000, loss=0.000151, RE=1.000000, MAE=0.107674, RMSE=0.123503
+[B0006] epoch=1500/2000, loss=0.000148, RE=0.633333, MAE=0.109054, RMSE=0.124524
+[B0006] new best epoch:1500 | hard=4.014859 | hard_tuple=(4, 2.9528972502678914, 5.952897250267892, 3.1587697422951346, 1.3981230723850964, 1.3960044355876602)
+[B0006] epoch=1600/2000, loss=0.000145, RE=0.622222, MAE=0.110584, RMSE=0.125789
+[B0006] new best epoch:1600 | hard=4.014794 | hard_tuple=(4, 2.931291729978485, 5.931291729978485, 3.1033527292724132, 1.4177495810314202, 1.4101894196746518)
+[B0006] epoch=1700/2000, loss=0.000142, RE=0.611111, MAE=0.112326, RMSE=0.127285
+[B0006] new best epoch:1700 | hard=4.014745 | hard_tuple=(4, 2.914973350552363, 5.914973350552363, 3.047935716249692, 1.4400783823075674, 1.4269592519951042)
+[B0006] epoch=1800/2000, loss=0.000140, RE=0.600000, MAE=0.114239, RMSE=0.128978
+[B0006] new best epoch:1800 | hard=4.014709 | hard_tuple=(4, 2.9030635682243844, 5.903063568224384, 2.9925187032269696, 1.4646076723567367, 1.4459371926406785)
+[B0006] epoch=1900/2000, loss=0.000138, RE=0.600000, MAE=0.116291, RMSE=0.130871
+[B0006] epoch=2000/2000, loss=0.000136, RE=0.600000, MAE=0.118522, RMSE=0.132894
+[B0006] selected best epoch:1800 | RE:0.600000 | MAE:0.114239 | RMSE:0.128978 | all_improved=False
+[B0006] validation proxy | RE:0.425590 | MAE:0.053341 | RMSE:0.059744 | composite:0.134365
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0006_lr0.0001_hidden64_experts16_seed4_bestepoch1800.pth
+[B0007] model device: npu:0; samples: 421
+[B0007] epoch=100/2000, loss=0.000651, RE=1.000000, MAE=0.094161, RMSE=0.110959
+[B0007] new best epoch:100 | hard=4.019316 | hard_tuple=(4, 4.438658814252128, 7.438658814252128, 4.98753117204495, 1.2071902677959436, 1.243937374411235)
+[B0007] epoch=200/2000, loss=0.000292, RE=0.291391, MAE=0.119084, RMSE=0.125100
+[B0007] new best epoch:200 | hard=4.010147 | hard_tuple=(4, 1.382499393729787, 4.382499393729787, 1.4533203415230316, 1.5267120870866226, 1.4024669651201327)
+[B0007] epoch=300/2000, loss=0.000286, RE=0.298013, MAE=0.119580, RMSE=0.125066
+[B0007] selected best epoch:200 | RE:0.291391 | MAE:0.119084 | RMSE:0.125100 | all_improved=False
+[B0007] validation proxy | RE:0.194356 | MAE:0.060982 | RMSE:0.075370 | composite:0.146070
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0007_lr0.0001_hidden64_experts16_seed4_bestepoch200.pth
+[B0018] model device: npu:0; samples: 457
+[B0018] epoch=100/2000, loss=0.000656, RE=1.000000, MAE=0.198192, RMSE=0.221281
+[B0018] new best epoch:100 | hard=4.027028 | hard_tuple=(4, 7.009178140901022, 10.009178140901021, 4.98753117204495, 2.5409187147656076, 2.4807282540904643)
+[B0018] epoch=200/2000, loss=0.000269, RE=1.000000, MAE=0.041641, RMSE=0.050532
+[B0018] new best epoch:200 | hard=2.016163 | hard_tuple=(2, 3.9875311720449496, 6.0878978151389305, 4.98753117204495, 0.5338653794278426, 0.5665012636661385)
+[B0018] epoch=300/2000, loss=0.000261, RE=1.000000, MAE=0.040847, RMSE=0.049531
+[B0018] new best epoch:300 | hard=2.016121 | hard_tuple=(2, 3.9875311720449496, 6.066496856008068, 4.98753117204495, 0.5236837178000017, 0.5552819661631166)
+[B0018] epoch=400/2000, loss=0.000252, RE=1.000000, MAE=0.040158, RMSE=0.048609
+[B0018] new best epoch:400 | hard=2.016082 | hard_tuple=(2, 3.9875311720449496, 6.047322103562299, 4.98753117204495, 0.5148435044262379, 0.5449474270911114)
+[B0018] epoch=500/2000, loss=0.000242, RE=1.000000, MAE=0.039453, RMSE=0.047635
+[B0018] new best epoch:500 | hard=2.016042 | hard_tuple=(2, 3.9875311720449496, 6.027364057354184, 4.98753117204495, 0.5058051148580394, 0.5340277704511958)
+[B0018] epoch=600/2000, loss=0.000233, RE=1.000000, MAE=0.038810, RMSE=0.046656
+[B0018] new best epoch:600 | hard=2.016004 | hard_tuple=(2, 3.9875311720449496, 6.0081362929474915, 4.98753117204495, 0.49756126154669994, 0.5230438593558417)
+[B0018] epoch=700/2000, loss=0.000223, RE=1.000000, MAE=0.038201, RMSE=0.045711
+[B0018] new best epoch:700 | hard=2.015967 | hard_tuple=(2, 3.9875311720449496, 5.989748425790134, 4.98753117204495, 0.4897580606846385, 0.5124591930605464)
+[B0018] epoch=800/2000, loss=0.000213, RE=1.000000, MAE=0.037643, RMSE=0.044843
+[B0018] new best epoch:800 | hard=2.015933 | hard_tuple=(2, 3.9875311720449496, 5.9728563250126125, 4.98753117204495, 0.4826048311416206, 0.5027203218260423)
+[B0018] epoch=900/2000, loss=0.000205, RE=0.410256, MAE=0.037148, RMSE=0.044087
+[B0018] new best epoch:900 | hard=2.007080 | hard_tuple=(2, 1.0461666346851075, 3.016667445389971, 2.0461666346851075, 0.47625430859051865, 0.49424650211434523)
+[B0018] epoch=1000/2000, loss=0.000196, RE=0.384615, MAE=0.036724, RMSE=0.043473
+[B0018] new best epoch:1000 | hard=2.006671 | hard_tuple=(2, 0.9182812200172883, 2.8764648293841497, 1.9182812200172883, 0.47081885496174586, 0.4873647544051156)
+[B0018] epoch=1100/2000, loss=0.000189, RE=0.358974, MAE=0.036436, RMSE=0.043024
+[B0018] new best epoch:1100 | hard=2.006270 | hard_tuple=(2, 0.7903958053494691, 2.7398601955829056, 1.790395805349469, 0.46712834082296323, 0.48233604941047303)
+[B0018] epoch=1200/2000, loss=0.000182, RE=0.346154, MAE=0.036262, RMSE=0.042755
+[B0018] new best epoch:1200 | hard=2.006068 | hard_tuple=(2, 0.7264530980155595, 2.6706600928697233, 1.7264530980155595, 0.4648913658792844, 0.4793156289748796)
+[B0018] epoch=1300/2000, loss=0.000176, RE=0.320513, MAE=0.036148, RMSE=0.042666
+[B0018] new best epoch:1300 | hard=2.005679 | hard_tuple=(2, 0.5985676833477405, 2.5403254084895446, 1.5985676833477405, 0.46343549751233437, 0.4783222276294699)
+[B0018] epoch=1400/2000, loss=0.000171, RE=0.307692, MAE=0.036131, RMSE=0.042753
+[B0018] new best epoch:1400 | hard=2.005489 | hard_tuple=(2, 0.5346249760138306, 2.4771345455473104, 1.5346249760138306, 0.4632173815877798, 0.4792921879457)
+[B0018] epoch=1500/2000, loss=0.000167, RE=0.294872, MAE=0.036282, RMSE=0.042998
+[B0018] new best epoch:1500 | hard=2.005306 | hard_tuple=(2, 0.470682268679921, 2.417875749741878, 1.470682268679921, 0.4651569897783493, 0.48203649128360726)
+[B0018] epoch=1600/2000, loss=0.000163, RE=0.282051, MAE=0.036640, RMSE=0.043379
+[B0018] new best epoch:1600 | hard=2.005132 | hard_tuple=(2, 0.4067395613460114, 2.362792894848923, 1.4067395613460114, 0.46974230299087605, 0.4863110305120357)
+[B0018] epoch=1700/2000, loss=0.000160, RE=0.282051, MAE=0.037106, RMSE=0.043866
+[B0018] epoch=1800/2000, loss=0.000158, RE=0.269231, MAE=0.037609, RMSE=0.044424
+[B0018] new best epoch:1800 | hard=2.004989 | hard_tuple=(2, 0.3427968540121018, 2.3229813586752748, 1.3427968540121018, 0.48216310083107156, 0.4980214038321016)
+[B0018] epoch=1900/2000, loss=0.000155, RE=0.269231, MAE=0.038108, RMSE=0.045029
+[B0018] epoch=2000/2000, loss=0.000154, RE=0.256410, MAE=0.038635, RMSE=0.045657
+[B0018] new best epoch:2000 | hard=2.004851 | hard_tuple=(2, 0.27885414667819197, 2.28602620430784, 1.278854146678192, 0.4953256351953924, 0.5118464224342558)
+[B0018] selected best epoch:2000 | RE:0.256410 | MAE:0.038635 | RMSE:0.045657 | all_improved=False
+[B0018] validation proxy | RE:0.234060 | MAE:0.073482 | RMSE:0.081979 | composite:0.167163
+Saved model: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/models_NASA/AttMoE_NASA_B0018_lr0.0001_hidden64_experts16_seed4_bestepoch2000.pth
+========================================================================
+All-seed metrics:
+all re mean: 0.2070
+all mae mean: 0.0730
+all rmse mean: 0.0830
+Robust-seed metrics:
+robust selected seeds: [3, 2, 0, 4]
+excluded seeds: [1]
+robust re mean: 0.1942
+robust mae mean: 0.0707
+robust rmse mean: 0.0803
+robust rows with all three metrics improved: 8 / 16
+Best epochs: [1000, 100, 200, 100, 1600, 2000, 1000, 1900, 200, 100, 300, 200, 200, 100, 200, 200, 1100, 1800, 200, 2000]
+Saved: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/final_training_scores_NASA_all.csv
+Saved: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/final_training_scores_NASA_robust.csv
+Saved: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/seed_stability_scores_NASA.csv
+Saved: /home/ubuntu/RUL-prediction/outputs_NASA_EOL_AttMoE_hardconstraint_robustseed_v1/robustseed_summary_NASA.csv
+========================================================================
