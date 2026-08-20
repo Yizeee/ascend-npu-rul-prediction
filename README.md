@@ -41,7 +41,7 @@ EOL-AttMoE 锂电池剩余使用寿命（RUL）预测模型在华为昇腾 910B4
 | EOL-AttMoE-NASA_npu.py | NASA 数据集训练脚本（NPU 适配版） |
 | EOL-AttMoE-CALCE_npu.py | CALCE 数据集训练脚本（NPU 适配版） |
 | nasa_train.log / calce_train.log | 完整训练日志（含 NPU 环境自检输出） |
-| final_training_scores*.csv | 最终训练评分（含 robust/detailed/all 变体） |
+| final_training_scores*.csv | 最终训练评分 |
 | robustseed_summary*.csv | 鲁棒种子选择汇总 |
 | seed_stability_scores*.csv | 种子稳定性评分 |
 
