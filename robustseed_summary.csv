@@ -1,0 +1,3 @@
+label,num_rows,re_mean,mae_mean,rmse_mean,all_three_improved_rows,selected_robust_seeds,excluded_seeds,robust_mode,robust_metric,robust_mad_k
+all_seeds,20,0.06619153152344073,0.05282794573050006,0.07338444403919295,10,"3,0,1,2",4,topk,val_composite_mean,1.0
+robust_seeds,16,0.060729642794699834,0.05083253416472704,0.0688474485616802,9,"3,0,1,2",4,topk,val_composite_mean,1.0

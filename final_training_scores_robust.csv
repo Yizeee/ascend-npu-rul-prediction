@@ -1,0 +1,17 @@
+variant,robust_mode,robust_metric,robust_mad_k,best_metric,baseline_re,baseline_mae,baseline_rmse,seed,battery,best_epoch,re,mae,rmse
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,0,CS2_35,200,0.006968641114982578,0.031318627727192516,0.043196527592278246
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,0,CS2_36,100,0.08854166666666667,0.08278525703721276,0.11408110872673485
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,0,CS2_37,250,0.14285714285714285,0.07944939706804013,0.10507848835892639
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,0,CS2_38,150,0.0703012912482066,0.0409740159265377,0.04964874889777366
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,1,CS2_35,250,0.012195121951219513,0.03157939869052688,0.04212257152841538
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,1,CS2_36,150,0.013888888888888888,0.038495832234746036,0.05647128764538705
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,1,CS2_37,200,0.1827956989247312,0.09785864108220511,0.12738881239864744
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,1,CS2_38,400,0.07604017216642754,0.04155714707720874,0.050108538420656566
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,2,CS2_35,250,0.006968641114982578,0.031762921196238324,0.04351399683960614
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,2,CS2_36,150,0.1388888888888889,0.08053542360927952,0.12501344596843023
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,2,CS2_37,400,0.05069124423963134,0.035585960042239434,0.042141107535008215
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,2,CS2_38,400,0.00860832137733142,0.041044743229802526,0.04518725408086562
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,3,CS2_35,150,0.020905923344947737,0.03260598036930998,0.045814257172486286
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,3,CS2_36,100,0.022569444444444444,0.06512943736194891,0.10177109301180386
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,3,CS2_37,100,0.11367127496159754,0.04242619270107903,0.052554639325700044
+EOL_AttMoE_hardconstraint_robustseed_v1_fixed,topk,val_composite_mean,1.0,hard,0.0732,0.0533,0.0716,3,CS2_38,100,0.015781922525107604,0.040211571282065046,0.05746729948416318
