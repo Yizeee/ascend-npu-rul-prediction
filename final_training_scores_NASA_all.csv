@@ -1,4 +1,4 @@
-variant,seed,battery,best_epoch,re,mae,rmse
+﻿variant,seed,battery,best_epoch,re,mae,rmse
 NASA_EOL_AttMoE_hardconstraint_robustseed_v1_all,0,B0005,1000,0.009433962264150943,0.05940378959798531,0.07317835625286634
 NASA_EOL_AttMoE_hardconstraint_robustseed_v1_all,0,B0006,100,0.022222222222222223,0.06872131325860907,0.08606296497735098
 NASA_EOL_AttMoE_hardconstraint_robustseed_v1_all,0,B0007,200,0.271523178807947,0.11968207132154941,0.12704009733576077
